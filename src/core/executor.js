@@ -21,7 +21,8 @@ export function runSubtask(subtask, availableAIs, spawner = spawn) {
   const [cmd, args] = config.invoke(prompt);
 
   return new Promise((resolve) => {
-    const proc = spawner(cmd, args, { shell: false });
+    // No Windows, shell:true é necessário para encontrar wrappers .cmd no PATH
+    const proc = spawner(cmd, args, { shell: process.platform === 'win32' });
 
     let stdout = '';
     let stderr = '';

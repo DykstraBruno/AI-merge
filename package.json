@@ -1,1 +1,8 @@
-{"type":"module"}
+{
+  "name": "ai-merge",
+  "version": "1.0.0",
+  "type": "module",
+  "bin": {
+    "aio": "./src/index.js"
+  }
+}
